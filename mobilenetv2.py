@@ -68,9 +68,9 @@ class MobileNetV2(nn.Module):
 
         self.avgpool = nn.AvgPool2d(kernel_size=7)
 
-        self.final_conv = nn.Conv2d(in_channels=1280, out_channels=100, kernel_size=1, stride=1, bias=False)
-
-        self.classifier = nn.Linear(100, 100)
+        self.final_conv = nn.Conv2d(in_channels=1280, out_channels=1280, kernel_size=1, stride=1, bias=False)
+        
+        self.classifier = nn.Linear(1280, 100)
 
     def forward(self, x):
         x = self.conv(x)
@@ -111,15 +111,15 @@ class MobileNetV2(nn.Module):
         x = self.block7(x)
 
         x = self.block8(x)
+        
+        x = self.avgpool(x)
 
-        features = self.avgpool(x)
+        features = self.final_conv(x)
 
-        x = self.final_conv(features)
-        #print(x.shape)
-
-        x = x.view(features.size(0), -1)
+        x = x.view(-1, 1280*1*1)
         #print(x.shape)
 
         x = self.classifier(x)
+        #print(x.shape)
 
         return x, features
