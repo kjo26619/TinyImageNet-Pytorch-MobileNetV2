@@ -68,7 +68,7 @@ Inverted Residual Bottleneck 구조는 기존의 3x3 Convolution Layer를 하기
 
 여기서 자잘하게 ResNet과 MobileNetV1과는 차이를 보이는데,
 
-먼저 ReLU6를 사용했다는 점입니다. ReLU6의 사용 이유에 대해서는 김진솔님께서 더욱 자세하게 얘기해주셨습니다. (https://gaussian37.github.io/dl-concept-relu6/)
+먼저 ReLU6를 사용했다는 점입니다.
 
 그리고 Stride가 2 즉, Down Sampling 할 때는 Skip Connection을 사용하지 않습니다.
 
