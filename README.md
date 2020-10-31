@@ -12,8 +12,6 @@ MobileNet은 VGGNet에서 모바일 등에서 효율적으로 사용하기 위�
 
 하지만 여기서 문제가 발생합니다. 3x3 Convolution Layer와 중간에 섞여있는 Max Pooling Layer가 많은 파라미터의 수와 연산을 가지게 됩니다.
 
-ResNet에서는 Layer 수 증가에 따른 Gradient Vanishing 문제 해결과 연산을 줄이기 위해 Bottleneck 구조를 선택하였습니다.
-
-MobileNet은 조금 다른 방법을 택했습니다. 이는 Depthwise Separable Convolution이라고 하는 연산으로 바꾸는 것입니다.
+MobileNet은 Depthwise Separable Convolution이라고 하는 연산으로 바꾸는 것입니다.
 
 Depthwise Separable Convolution은 
