@@ -15,7 +15,7 @@ class MobileNetBlock(nn.Module):
             nn.BatchNorm2d(t * input_channel),
             nn.ReLU6(),
             nn.Conv2d(in_channels=t * input_channel, out_channels=t * input_channel, kernel_size=3, stride=self.stride,
-                      bias=False, padding=1),
+                      bias=False, padding=1, groups=t * input_channel),
             nn.BatchNorm2d(t * input_channel),
             nn.ReLU6(),
             nn.Conv2d(in_channels=t * input_channel, out_channels = c, kernel_size=1, stride=1,
